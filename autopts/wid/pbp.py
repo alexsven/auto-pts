@@ -202,7 +202,11 @@ def hdl_wid_552(params: WIDParams):
     program_info = bytes.fromhex(program_info_string)
     program_info_len = len(program_info)
     metadata = struct.pack('<BB', program_info_len + 1, AUDIO_METADATA_PROGRAM_INFO) + program_info
+
     btp.pbp.pbp_set_public_broadcast_announcement(features, metadata)
+    btp.pbp.pbp_set_broadcast_name("Broadcaster")
+
+    metadata += struct.pack('<BBH', 3, AUDIO_METADATA_STREAMING_AUDIO_CONTEXTS, 0x0200)
 
     coding_format = 0x06
     vid = 0x0000

@@ -61,7 +61,7 @@ def pbp_set_public_broadcast_announcement(features, metadata):
 
     data = bytearray()
     metadata_len = len(metadata)
-    data += struct.pack('BB', features, metadata_len)
+    data += struct.pack('B', features)
 
     if metadata_len:
         data += metadata
