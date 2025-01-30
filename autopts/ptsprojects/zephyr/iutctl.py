@@ -73,6 +73,7 @@ class ZephyrCtl:
         self.native = None
         self.gdb = args.gdb
         self.is_running = False
+        self.name = "Zephyr"
 
         if self.tty_file and args.board_name:  # DUT is a hardware board, not QEMU
             if self.debugger_snr is None:
